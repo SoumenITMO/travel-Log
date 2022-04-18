@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: true
+
+micronaut:
+  server:
+    port: 8081
+    cors:
+      enabled: true
+  application:
+    name: kodality
+
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/kodality
+    driverClassName: org.postgresql.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+liquibase:
+  enabled: true
+  datasources:
+    default:
+      drop-first: true
+      change-log: 'classpath:db/liquibase-changelog.xml'

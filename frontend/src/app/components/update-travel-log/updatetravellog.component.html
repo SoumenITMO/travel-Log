@@ -1,0 +1,39 @@
+<div class="frm-container">
+  <h4> Update Travel History Log  </h4>
+  <form [formGroup]="form" (submit)="updateHistoryLogData()">
+    <label> Travel Route </label>
+    <div class="form-group">
+      <input type="text" class="form-control" id="travel-route" formControlName="travel_route" placeholder="Enter Travel Route">
+    </div>
+    <br>
+    <label> Travel Short Description </label>
+    <div class="form-group">
+      <input type="text" class="form-control" id="travel-short-description" formControlName="travel_short_description" placeholder="Enter Travel Short Description">
+    </div>
+    <br>
+    <label> Vechile Registration Number </label>
+    <div class="form-group">
+      <input type="text" class="form-control" id="vechine-registration-number" formControlName="vechile_registration_number" placeholder="Enter Vechine Registration Number">
+    </div>
+    <br>
+    <label> Vechile Odometer Start </label>
+    <div class="form-group">
+      <input type="number" class="form-control" id="vechine-odometer-start-number" formControlName="vechile_odometer_start_number" placeholder="Enter Vechine Odometer Start Number">
+    </div>
+    <br>
+    <label> Vechile Odometer End </label>
+    <div class="form-group">
+      <input type="number" class="form-control" id="vechine-odometer-end-number" formControlName="vechile_odometer_end_number" placeholder="Enter Vechine Odometer End Number">
+    </div>
+    <br>
+    <label> Date of the log </label>
+    <div class="form-group">
+      <input type="date" class="form-control" id="vechine-history-log-date" max="{{ maxDateForCalender }}" formControlName="vechile_history_log_date">
+    </div>
+    <br>
+    <div>
+      <span> <button [disabled]="form.invalid"  type="submit" class="btn btn-primary">Update Travel Log</button> </span>
+      <span class="home-btn"> <button type="button" (click)="goToHome()" class="btn btn-primary"> Home </button> </span>
+    </div>
+  </form>
+</div>

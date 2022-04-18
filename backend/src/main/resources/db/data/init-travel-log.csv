@@ -1,0 +1,6 @@
+travel_log_id,user_id,logdate,vehicle_reg_number,vehicle_odometer_start,vehicle_odometer_end,travel_route,travel_short_description
+1,1,2022-03-08T20:08:27,EST14016,23451,53451,Tallinn to Tartu,Visitng Family
+2,2,2022-02-18T09:18:17,EST14016,53451,71881,Tartu to Tallinn,Returning Back to tallinn from family
+3,1,2022-04-13T13:48:07,EST14016,71881,102151,Tallinn to Rakvere,Visitng Family
+4,2,2022-04-28T22:18:07,ESTA0016,112151,142110,Rakvere to Parnu,Visitng Family
+5,2,2022-05-08T05:38:08,ESTA0016,322110,399102,Parnu to Kuressaare,Tour

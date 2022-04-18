@@ -1,0 +1,75 @@
+<div class="main-container">
+  <div class="create-new-log-btn">
+    <button type="button" class="btn btn-secondary" (click)="updateTravelLog()">Create New Travel Log</button>
+  </div>
+  <div *ngIf="!showTravelHistoryInfo" class="no-result-found">
+    <h4> No Result Found ... </h4>
+  </div>
+  <!--- Search Form Start --->
+  <form [formGroup]="searchLogData" class="form-inline" style="padding-top: 3%">
+    <h5> Search Travel Log Data </h5>
+    <div>
+      <span> <label> Owner's Name : </label> <input type="text" id="owner-name" formControlName="owner_name" placeholder="Enter Owner's name"> </span> &nbsp;
+      <span> <label> Vehicle Reg Number : </label> <input type="text" id="vehicle-reg-number" formControlName="vehicle_reg_number" placeholder="Vehicle Reg Number"> </span> &nbsp;
+      <span> <label> Log Date From : </label> <input type="date" id="vehicle-log-from" formControlName="date_from" placeholder="Vehicle Log From"> </span> &nbsp;
+      <span> <label> Log Date To : </label> <input type="date" id="vehicle-log-to" formControlName="date_to" placeholder="Vehicle Log To"> </span> &nbsp;
+      <span> <button type="button" class="btn btn-primary"  (click)="searchUserLogs()">Search</button> </span> &nbsp;
+      <span> <button type="button" class="btn btn-dark" (click)="resetSearch()">Reset</button> </span>
+    </div>
+    <br>
+  </form>
+  <!---- Search form end --->
+
+  <div *ngIf="showTravelHistoryInfo" style="padding-top: 2%">
+    <div class="row" *ngFor="let user of users">
+      <!--  Owner's Information Table -->
+      <div class="col-md-4" *ngIf="user.logs.length > 0">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Owner's Name</th>
+            <th>Owner Age</th>
+            <th>Distance Traveled</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td> {{ user.name }} </td>
+            <td> {{ user.age }} </td>
+            <td> {{ user.distanceTraveld }} </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!---------------------------------------->
+
+      <!----- Owner's travelling log table ----->
+      <div class="col-md-8" *ngIf="user.logs.length > 0">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th style="width: 12%">Travel Route</th>
+            <th>Travel Description</th>
+            <th>Car Registration Number</th>
+            <th>Odometer Start</th>
+            <th>Odometer End</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let getlogdata of user.logs">
+            <td> {{ getlogdata.travelRoute }} </td>
+            <td> {{ getlogdata.travelShortDescription }} </td>
+            <td> {{ getlogdata.vehicleRegNumber }} </td>
+            <td> {{ getlogdata.vehicleOdometerStart }} </td>
+            <td> {{ getlogdata.vehicleOdometerEnd }} </td>
+            <td> <button (click)="deleteTravelLogDate(getlogdata.id)"> Delete </button>
+              <button (click)="updateUserTravelLogData(getlogdata.id)"> Update </button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <!---------------------------------------->
+    </div>
+  </div>
+</div>
